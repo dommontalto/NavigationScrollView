@@ -9,13 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            ScrollView() {
+                    ForEach(0..<50, id: \.self) { _ in
+                        NavigationLink(destination: SecondContentView()) {
+                            Text("Open Second Content View")
+                        }
+                    }
+                }
+            .navigationTitle("First Content View")
+            .navigationBarTitleDisplayMode(.large)
         }
-        .padding()
     }
 }
 
